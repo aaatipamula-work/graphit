@@ -10,6 +10,18 @@ matplotlib.use('agg')
 app = Flask(__name__)
 
 
+# Required JSON Schema:
+# {
+#     "chart_title": "Chart Title Here",
+#     "x_axis": "Name of X-Axis", // (Not required if type = "pie")
+#     "y_axis": "Name of Y-Axis", // (Not required if type = "pie")
+#     "columns": { 
+#         "ColumnName1": 1,
+#         "ColumnName2": 2,
+#     }, // (Column values must be integers, can repeat for any number of columns)
+#     "type": "pie" // (Must be "pie" or "bar")
+# }
+
 # Generate a unique hash string based on some JSON/dictionary
 def generate_hash(data: dict):
     normalized = dumps(data, separators=(',', ':'))
